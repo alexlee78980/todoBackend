@@ -16,7 +16,7 @@ const checkAuth = (req, res, next) => {
     next();
   } catch (err) {
     const error = 'Authentication failed!'
-    return next(error);
+    return res.send("Action not allowed!");
   }
 };
 

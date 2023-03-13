@@ -2,7 +2,6 @@ const Todo = require("../models/todo");
 const checkAuth = require("../middleware/check-auth")
 
 const getTodo = async (req, res) => {
-    console.log("ran read todo")
 	try {
 		const todos = await Todo.find({});
 		return res.json(todos);
@@ -93,7 +92,7 @@ const deleteTodo =  async (req, res) => {
 		return res.json({ message: "Todo item deleted" });
 	} catch (err) {
 		console.error(err);
-		return res.status(500).json({ error: "Server error" });
+		return res.status(500).json({ error: "unauthorized" });
 	}
 }
 
